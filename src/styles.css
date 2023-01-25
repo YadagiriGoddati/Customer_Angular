@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    font-size: 12px;
+}
+.dataTableList .dataTables_length{
+    width:50%;
+}
+.dataTableList .dataTables_filter{
+    width:34%;
+    float: left !important;
+    padding-right: 10px;
+
+}
+.dataTableList .dt-buttons{
+    width:auto;
+    float:right;
+}
+.dataTableList th, .dataTableList td {
+    white-space: nowrap;
+    font-size: 12px;
+}
+.dataTableList .dataTables_wrapper .dataTables_filter input{
+    height: 30px;
+}
+.dataTableList .table.dataTable.no-footer,
+.dataTableList table.dataTable thead th{
+    border-bottom: 1px solid #ccc !important;
+}
+.dataTableList table{
+    border-top: 1px solid #ccc !important;
+    
+}
+.dataTableList .dt-button{
+    background: #fff;
+    border: 1px solid #aaa;
+}

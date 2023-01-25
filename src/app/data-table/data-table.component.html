@@ -1,0 +1,74 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+     <h2>Customer</h2>
+     <div class="d-flex">
+        <button class="btn btn-success" (click)="openPopup()">Add</button>
+     </div>   
+    </div>
+</nav>
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="1">Customer id</th>
+        <th scope="1">First Name</th>
+        <th scope="1">Last Name</th>
+        <th scope="1">Age</th>
+       
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of customerData">
+        <td>{{row.customerId}}</td>
+        <td>{{row.firstName}}</td>
+        <td>{{row.lastName}}</td>
+        <td>{{row.age}}</td>
+       
+        <td>
+            <button (click)="onEdit(row)" class="btn btn-info bg-info">Edit</button>
+            <button (click)="deleteCustomer(row)" class="btn btn-danger bg-danger mx-3">Delete</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Modal -->
+  <div class="modal" [ngStyle]="{'display':displayStyle}" id="exampleModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Customer Details</h5>
+          <button type="button" class="close" aria-label="Close" (click)="closePopup()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+            
+            <div class="form-group mb-2">
+                <label for="exampleInputPassword1">First Name</label>
+                <input type="text" formControlName="firstName" class="form-control" id="firstName" placeholder="First Name">
+              </div>
+
+              <div class="form-group mb-2">
+                <label for="exampleInputPassword1">Last Name</label>
+                <input type="text" formControlName="lastName" class="form-control" id="lastName" placeholder="Last Name">
+              </div>
+
+              <div class="form-group mb-2">
+                <label for="exampleInputPassword1">Age</label>
+                <input type="text" formControlName="age" class="form-control" id="age" placeholder="Age">
+              </div>
+
+              
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" *ngIf="showAdd" (click)="postCustomers()" class="btn btn-primary">Save changes</button>
+            <button type="button" *ngIf="showUpdate" (click)="updatevalue()" class="btn btn-primary">update</button>
+            <button type="button" class="btn btn-secondary" (click)="closePopup()">Close</button>
+        </div>
+       
+    </div>
+    </div>
+  </div>
